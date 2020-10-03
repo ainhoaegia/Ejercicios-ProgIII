@@ -7,7 +7,7 @@ public class UsuarioFoto extends Usuario{
 	public UsuarioFoto(String nombre, String password) {
 		super(nombre, password);
 	}
-	
+
 	protected Image fotoUsuario; // Foto del usuario
 	
 	public UsuarioFoto(String nombre, String password, Image fotoUsuario) {
@@ -15,5 +15,11 @@ public class UsuarioFoto extends Usuario{
 		this.fotoUsuario = fotoUsuario;
 	}
 	
+	public Image getFotoUsuario() {
+		return fotoUsuario;
+	}
 
+	public void setFotoUsuario(Image fotoUsuario) {
+		this.fotoUsuario = fotoUsuario;
+	}
 }
