@@ -1,6 +1,8 @@
 package EJ07;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -15,6 +17,10 @@ public class VentanaUsuario extends JFrame{
 	
 	private JPanel panelNorte;
 	private JPanel panelSur;
+	
+	private JButton botonFoto;
+	private JButton botonNivel;
+	
 	
 	Usuario u = new Usuario( nombre, password );
 	
@@ -46,6 +52,42 @@ public class VentanaUsuario extends JFrame{
 		panelNorte.add( new JLabel( "Password:" ) );
 		panelNorte.add( tfPassword );
 		
+		botonFoto = new JButton( "FOTO" );
+		botonNivel = new JButton( "NIVEL" );
+		
+		panelSur.add( botonFoto );
+		panelSur.add( botonNivel );
+		
+		botonFoto.setFocusable( true );
+		botonNivel.setFocusable( true );
+		
+		botonFoto.addActionListener( new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VentanaUsuarioFoto vFoto = new VentanaUsuarioFoto( "FOTO" );
+				vFoto.setLocation( getLocation().x, getLocation().y );
+				vFoto.setVisible( true );
+				
+				setVisible( false );
+				dispose();
+				
+			}
+		});
+		
+		botonNivel.addActionListener( new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VentanaUsuarioNivel vNivel = new VentanaUsuarioNivel( "NIVEL" );
+				vNivel.setLocation( getLocation().x, getLocation().y );
+				vNivel.setVisible( true );
+				
+				setVisible( false );
+				dispose();
+			}
+		});
+		
 		muestraUsuario();
 		
 	}
@@ -54,6 +96,6 @@ public class VentanaUsuario extends JFrame{
 		nombre = u.getNombre();
 		password = u.getPassword();
 		
-		System.out.println( "Nombre: " + nombre + "Password: " + password);
+		System.out.println( "Nombre: " + nombre + " --> Password: " + password);
 	}
 }
