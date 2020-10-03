@@ -10,8 +10,8 @@ public class VentanaUsuario extends JFrame{
 	private JTextField tfNombre;
 	private JTextField tfPassword; // LA CONTRASEÑA NO TIENE QUE SER VISIBLE
 	
-	private String nombre;
-	private String password;
+	protected String nombre;
+	protected String password;
 	
 	private JPanel panelNorte;
 	private JPanel panelSur;
@@ -40,10 +40,10 @@ public class VentanaUsuario extends JFrame{
 		tfPassword = new JPasswordField( 15 );
 		
 		
-		panelNorte.add( new JLabel( "Usuario: @" ) );
+		panelNorte.add( new JLabel( "Nombre" ) );
 		panelNorte.add( tfNombre );
 		
-		panelNorte.add( new JLabel( "Contraseña:" ) );
+		panelNorte.add( new JLabel( "Password:" ) );
 		panelNorte.add( tfPassword );
 		
 		muestraUsuario();
