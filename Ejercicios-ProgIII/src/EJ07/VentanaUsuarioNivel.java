@@ -1,23 +1,27 @@
 package EJ07;
 
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
 @SuppressWarnings("serial")
-public class VentanaUsuarioNivel extends VentanaUsuario{
+public class VentanaUsuarioNivel extends JFrame{
 	
 	protected int nivel;
 	private JSlider jsNivel;
-	
-	Usuario u = new Usuario( nombre, password );
-	UsuarioNivel uNivel = new UsuarioNivel( nombre, password, nivel );
-
+	private VentanaUsuario v;
+	private JPanel panelCentro;
 	private JPanel panelIzquierda;
 	private JPanel panelDerecha;
 	private JPanel panelSur;
+	private String nombre;
+	private String password;
+	private JTextArea taDatos;
+	
+	Usuario u = new Usuario( nombre, password );
 	
 	public static void main(String[] args) {
 		VentanaUsuarioNivel vNivel = new VentanaUsuarioNivel( "NIVEL DEL USUARIO" );
@@ -30,23 +34,50 @@ public class VentanaUsuarioNivel extends VentanaUsuario{
 		this.setSize( 900, 300 ); 
 		this.setLocationRelativeTo( null ); // CENTRAR LA VENTANA
 		
-		panelIzquierda = new JPanel();
-		panelDerecha = new JPanel();
+		
+	// PANELES
+		
+		panelCentro = new JPanel( new GridLayout( 1, 2 ) );
+		panelIzquierda = new JPanel( new BorderLayout() );
+		panelDerecha = new JPanel( new BorderLayout() );
+		panelCentro.add( panelIzquierda );
+		panelCentro.add( panelDerecha );
 		panelSur = new JPanel();
 		
-		this.add( panelIzquierda, BorderLayout.EAST );
-		this.add( panelDerecha, BorderLayout.WEST );
+		this.add( panelCentro, BorderLayout.CENTER );
 		this.add( panelSur, BorderLayout.SOUTH );
 		
-		panelIzquierda.add( new JLabel( "Nombre" ) );
-		panelIzquierda.add( new JLabel( nombre ) );
 		
-		panelIzquierda.add( new JLabel( "Password:" ) );
-		panelIzquierda.add( new JLabel( password ) );
+	// VARIABLES
 		
-		jsNivel = new JSlider( 10 );
+		nombre = u.getNombre();
+		password = u.getPassword();
+		
+		
+	// PANEL IZQUIERDA
+		
+		taDatos = new JTextArea();
+		taDatos.setText( "Nombre: " + nombre + "\n" + "Password: " + password + "\n" +
+						"Por favor, indique a la derecha el nivel del usuario del 0 al 10" );
+		
+		taDatos.setEditable( false );
+		panelIzquierda.add( taDatos );
+		
+		
+	// PANEL DERECHA
+		
+		jsNivel = new JSlider( 0, 10 );
+		
+		jsNivel.setMajorTickSpacing( 10 );
+		jsNivel.setMinorTickSpacing( 1 );
+		jsNivel.setPaintTicks( true );
+		jsNivel.setPaintLabels( true );
+		jsNivel.setSnapToTicks( true );
 		
 		panelDerecha.add( jsNivel );
+		
+		
+	// PANEL SUR
 		
 		JButton botonAtras = new JButton( "ATRAS" );
 		panelSur.add( botonAtras );
@@ -55,7 +86,7 @@ public class VentanaUsuarioNivel extends VentanaUsuario{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VentanaUsuario v = new VentanaUsuario( "EJERCICIO 7" );
+				v = new VentanaUsuario( "EJERCICIO 7" );
 				v.setLocation( getLocation().x, getLocation().y );
 				v.setVisible( true );
 				

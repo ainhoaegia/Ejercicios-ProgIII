@@ -10,7 +10,7 @@ import javax.swing.*;
 public class VentanaUsuario extends JFrame{
 	
 	private JTextField tfNombre;
-	private JTextField tfPassword; // LA CONTRASEÑA NO TIENE QUE SER VISIBLE
+	private JTextField tfPassword;
 	
 	protected String nombre;
 	protected String password;
@@ -45,12 +45,14 @@ public class VentanaUsuario extends JFrame{
 		tfNombre = new JTextField( 15 );
 		tfPassword = new JPasswordField( 15 );
 		
-		
 		panelNorte.add( new JLabel( "Nombre" ) );
 		panelNorte.add( tfNombre );
 		
 		panelNorte.add( new JLabel( "Password:" ) );
 		panelNorte.add( tfPassword );
+		
+		tfNombre.setText( u.getNombre() );
+		tfPassword.setText( u.getPassword() );
 		
 		botonFoto = new JButton( "FOTO" );
 		botonNivel = new JButton( "NIVEL" );
