@@ -13,4 +13,11 @@ public class UsuarioNivel extends Usuario{
 		this.nivelUsuario = nivelUsuario;
 	}
 	
+	public void nivel() {
+		if (nivelUsuario>10) {
+			nivelUsuario = 10;
+		} else if (nivelUsuario<0) {
+			nivelUsuario =0;
+		}
+	}
 }
