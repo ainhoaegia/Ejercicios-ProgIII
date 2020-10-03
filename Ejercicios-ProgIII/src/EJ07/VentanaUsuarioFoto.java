@@ -26,7 +26,7 @@ public class VentanaUsuarioFoto extends JFrame{
 	private String password;
 	private JTextArea taDatos;
 	
-	Usuario u = new Usuario( nombre, password );
+	Usuario u = new Usuario(nombre, password);
 	
 	public static void main(String[] args) {
 		VentanaUsuarioFoto vFoto = new VentanaUsuarioFoto( "FOTO DEL USUARIO" );
@@ -71,13 +71,8 @@ public class VentanaUsuarioFoto extends JFrame{
 	// PANEL DERECHA
 		
 		panelDerecha.add( imag );
-		
-//		try {                
-//			foto = ImageIO.read(new File("src/EJ07/fotoPersona.png"));
-//		} catch (IOException ex) {}
-//		
-//		panelDerecha.add( new JLabel( new ImageIcon( foto )));
-		
+
+
 	// PANEL SUR
 		
 		JButton botonAtras = new JButton( "ATRAS" );

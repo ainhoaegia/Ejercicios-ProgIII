@@ -17,13 +17,12 @@ public class VentanaUsuario extends JFrame{
 	
 	private JPanel panelNorte;
 	private JPanel panelSur;
-	
+
 	private JButton botonFoto;
 	private JButton botonNivel;
 	
-	
 	Usuario u = new Usuario( nombre, password );
-	
+
 	public static void main(String[] args) {
 		VentanaUsuario v = new VentanaUsuario( "EJERCICIO 7" );
 		v.setVisible( true );
@@ -43,12 +42,12 @@ public class VentanaUsuario extends JFrame{
 		this.add( panelSur, BorderLayout.SOUTH );
 		
 		tfNombre = new JTextField( 15 );
-		tfPassword = new JPasswordField( 15 );
+		tfPassword = new JTextField( 15 );
 		
 		panelNorte.add( new JLabel( "Nombre" ) );
 		panelNorte.add( tfNombre );
 		
-		panelNorte.add( new JLabel( "Password:" ) );
+		panelNorte.add( new JLabel( "Contraseña: " ) );
 		panelNorte.add( tfPassword );
 		
 		tfNombre.setText( u.getNombre() );
@@ -93,11 +92,11 @@ public class VentanaUsuario extends JFrame{
 		muestraUsuario();
 		
 	}
-	
+
 	public void muestraUsuario() {
 		nombre = u.getNombre();
 		password = u.getPassword();
 		
-		System.out.println( "Nombre: " + nombre + " --> Password: " + password);
+		System.out.println( "Nombre: " + nombre + "\n" + "Password: " + password + "\n" );
 	}
 }
